@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="EcoGuardian - Plataforma de quizzes sobre el cuidado del medio ambiente"
+    >
+
+    <title>EcoGuardian | Quiz Ambiental</title>
+
+
+    <!-- ==========================================
+         BOOTSTRAP
+    =========================================== -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- ==========================================
+         BOOTSTRAP ICONS
+    =========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+
+    <!-- ==========================================
+         CSS PROPIO
+    =========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         FONDO
+    =========================================== -->
+
+    <div class="fondo"></div>
+
+    <div class="brillos"></div>
+
+
+    <!-- ==========================================
+         PARTICULAS
+    =========================================== -->
+
+    <div class="particulas">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         NAVBAR
+    =========================================== -->
+
+    <nav
+        id="navbar"
+        class="navbar navbar-expand-lg fixed-top"
+    >
+
+        <div class="container">
+
+
+            <!-- LOGO -->
+
+            <a
+                class="navbar-brand"
+                href="#inicio"
+            >
+
+                <span class="logo-icon">
+                    🌍
+                </span>
+
+                Eco<span>Guardian</span>
+
+            </a>
+
+
+            <!-- BOTON MENU MOVIL -->
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu"
+                aria-controls="menu"
+                aria-expanded="false"
+                aria-label="Abrir menú"
+            >
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+            <!-- MENU -->
+
+            <div
+                class="collapse navbar-collapse"
+                id="menu"
+            >
+
+                <ul
+                    class="navbar-nav ms-auto align-items-lg-center"
+                >
+
+
+                    <!-- INICIO -->
+
+                    <li class="nav-item">
+
+                        <a
+                            class="nav-link"
+                            href="#inicio"
+                        >
+                            Inicio
+                        </a>
+
+                    </li>
+
+
+                    <!-- QUIZZES -->
+
+                    <li class="nav-item">
+
+                        <a
+                            class="nav-link"
+                            href="#categorias"
+                        >
+                            Quizzes
+                        </a>
+
+                    </li>
+
+
+                    <!-- APRENDER -->
+
+                    <li class="nav-item">
+
+                        <a
+                            class="nav-link"
+                            href="#aprende"
+                        >
+                            Aprender
+                        </a>
+
+                    </li>
+
+
+                    <!-- MODO -->
+
+                    <li class="nav-item ms-lg-3">
+
+                        <button
+                            id="modoBtn"
+                            class="modo-btn"
+                            type="button"
+                            title="Cambiar tema"
+                        >
+
+                            <i class="bi bi-moon-stars-fill"></i>
+
+                        </button>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ==========================================
+         HERO
+    =========================================== -->
+
+    <section
+        id="inicio"
+        class="hero"
+    >
+
+        <div class="container">
+
+            <div class="row align-items-center min-vh-100">
+
+
+                <!-- TEXTO -->
+
+                <div class="col-lg-6">
+
+
+                    <div class="badge-eco">
+
+                        <span></span>
+
+                        PLATAFORMA EDUCATIVA AMBIENTAL
+
+                    </div>
+
+
+                    <h1>
+
+                        Descubre cuánto
+
+                        <span>sabes</span>
+
+                        sobre nuestro planeta.
+
+                    </h1>
+
+
+                    <p class="hero-text">
+
+                        Pon a prueba tus conocimientos con diferentes
+                        quizzes sobre reciclaje, agua, energía,
+                        naturaleza, océanos y mucho más.
+
+                    </p>
+
+
+                    <!-- BOTONES -->
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#categorias"
+                            class="btn-eco"
+                        >
+
+                            <i class="bi bi-controller"></i>
+
+                            Elegir Quiz
+
+                        </a>
+
+
+                        <a
+                            href="#aprende"
+                            class="btn-secundario"
+                        >
+
+                            <i class="bi bi-book"></i>
+
+                            Aprende
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- ESTADISTICAS -->
+
+                    <div class="hero-stats">
+
+                        <div>
+
+                            <strong>
+                                {{ quizzes|length }}
+                            </strong>
+
+                            <small>
+                                Categorías
+                            </small>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                30+
+                            </strong>
+
+                            <small>
+                                Preguntas
+                            </small>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                100%
+                            </strong>
+
+                            <small>
+                                Educativo
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- IMAGEN -->
+
+                <div class="col-lg-6">
+
+                    <div class="hero-image-container">
+
+
+                        <div class="circulo circulo-1"></div>
+
+                        <div class="circulo circulo-2"></div>
+
+
+                        <div class="hero-image">
+
+                            <img
+                                src="{{ url_for('static', filename='images/images.jpg') }}"
+                                alt="Planeta Tierra"
+                            >
+
+                        </div>
+
+
+                        <!-- TARJETA SUPERIOR -->
+
+                        <div class="floating-card card-top">
+
+                            🌱
+
+                            <span>
+                                Protege el planeta
+                            </span>
+
+                        </div>
+
+
+                        <!-- TARJETA INFERIOR -->
+
+                        <div class="floating-card card-bottom">
+
+                            🏆
+
+                            <span>
+                                Conviértete en EcoGuardián
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         CATEGORIAS
+    =========================================== -->
+
+    <section
+        id="categorias"
+        class="categorias"
+    >
+
+        <div class="container">
+
+
+            <!-- TITULO -->
+
+            <div class="section-title">
+
+                <span>
+                    🧠 ELIGE TU DESAFÍO
+                </span>
+
+                <h2>
+
+                    ¿Qué quieres poner
+
+                    <strong>a prueba?</strong>
+
+                </h2>
+
+                <p>
+
+                    Selecciona una categoría y comienza
+                    tu desafío ambiental.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- CATEGORIAS -->
+
+            <div class="row g-4">
+
+
+                <!-- ==================================
+                     MEDIO AMBIENTE
+                =================================== -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="categoria-card">
+
+                        <div class="categoria-icon">
+                            🌱
+                        </div>
+
+
+                        <div class="categoria-info">
+
+                            <span>
+                                01
+                            </span>
+
+                            <h3>
+                                Cuidado del ambiente
+                            </h3>
+
+                            <p>
+                                Aprende sobre acciones para proteger
+                                nuestro planeta.
+                            </p>
+
+
+                            <div class="quiz-buttons">
+
+                                <a
+                                    href="{{ url_for('quiz', categoria='medio-ambiente') }}"
+                                    class="btn-quiz"
+                                >
+
+                                    <i class="bi bi-controller"></i>
+
+                                    Quiz
+
+                                </a>
+
+
+                                <a
+                                    href="{{ url_for('aprender', tema='medio-ambiente') }}"
+                                    class="btn-learn"
+                                >
+
+                                    <i class="bi bi-book"></i>
+
+                                    Aprender
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================================
+                     RECICLAJE
+                =================================== -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="categoria-card">
+
+                        <div class="categoria-icon">
+                            ♻️
+                        </div>
+
+
+                        <div class="categoria-info">
+
+                            <span>
+                                02
+                            </span>
+
+                            <h3>
+                                Reciclaje
+                            </h3>
+
+                            <p>
+                                Descubre cómo reducir y separar
+                                correctamente los residuos.
+                            </p>
+
+
+                            <div class="quiz-buttons">
+
+                                <a
+                                    href="{{ url_for('quiz', categoria='reciclaje') }}"
+                                    class="btn-quiz"
+                                >
+
+                                    <i class="bi bi-controller"></i>
+
+                                    Quiz
+
+                                </a>
+
+
+                                <a
+                                    href="{{ url_for('aprender', tema='reciclaje') }}"
+                                    class="btn-learn"
+                                >
+
+                                    <i class="bi bi-book"></i>
+
+                                    Aprender
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================================
+                     AGUA
+                =================================== -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="categoria-card">
+
+                        <div class="categoria-icon">
+                            💧
+                        </div>
+
+
+                        <div class="categoria-info">
+
+                            <span>
+                                03
+                            </span>
+
+                            <h3>
+                                Cuidado del agua
+                            </h3>
+
+                            <p>
+                                Pon a prueba tus conocimientos
+                                sobre el recurso más importante.
+                            </p>
+
+
+                            <div class="quiz-buttons">
+
+                                <a
+                                    href="{{ url_for('quiz', categoria='agua') }}"
+                                    class="btn-quiz"
+                                >
+
+                                    <i class="bi bi-controller"></i>
+
+                                    Quiz
+
+                                </a>
+
+
+                                <a
+                                    href="{{ url_for('aprender', tema='agua') }}"
+                                    class="btn-learn"
+                                >
+
+                                    <i class="bi bi-book"></i>
+
+                                    Aprender
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================================
+                     ENERGIA
+                =================================== -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="categoria-card">
+
+                        <div class="categoria-icon">
+                            ⚡
+                        </div>
+
+
+                        <div class="categoria-info">
+
+                            <span>
+                                04
+                            </span>
+
+                            <h3>
+                                Energía
+                            </h3>
+
+                            <p>
+                                Conoce las energías renovables y
+                                el consumo responsable.
+                            </p>
+
+
+                            <div class="quiz-buttons">
+
+                                <a
+                                    href="{{ url_for('quiz', categoria='energia') }}"
+                                    class="btn-quiz"
+                                >
+
+                                    <i class="bi bi-controller"></i>
+
+                                    Quiz
+
+                                </a>
+
+
+                                <a
+                                    href="{{ url_for('aprender', tema='energia') }}"
+                                    class="btn-learn"
+                                >
+
+                                    <i class="bi bi-book"></i>
+
+                                    Aprender
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================================
+                     NATURALEZA
+                =================================== -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="categoria-card">
+
+                        <div class="categoria-icon">
+                            🌳
+                        </div>
+
+
+                        <div class="categoria-info">
+
+                            <span>
+                                05
+                            </span>
+
+                            <h3>
+                                Naturaleza
+                            </h3>
+
+                            <p>
+                                Explora los ecosistemas, bosques
+                                y biodiversidad.
+                            </p>
+
+
+                            <div class="quiz-buttons">
+
+                                <a
+                                    href="{{ url_for('quiz', categoria='naturaleza') }}"
+                                    class="btn-quiz"
+                                >
+
+                                    <i class="bi bi-controller"></i>
+
+                                    Quiz
+
+                                </a>
+
+
+                                <a
+                                    href="{{ url_for('aprender', tema='naturaleza') }}"
+                                    class="btn-learn"
+                                >
+
+                                    <i class="bi bi-book"></i>
+
+                                    Aprender
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================================
+                     OCEANOS
+                =================================== -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="categoria-card">
+
+                        <div class="categoria-icon">
+                            🌊
+                        </div>
+
+
+                        <div class="categoria-info">
+
+                            <span>
+                                06
+                            </span>
+
+                            <h3>
+                                Océanos
+                            </h3>
+
+                            <p>
+                                Descubre cómo podemos proteger
+                                nuestros mares.
+                            </p>
+
+
+                            <div class="quiz-buttons">
+
+                                <a
+                                    href="{{ url_for('quiz', categoria='oceanos') }}"
+                                    class="btn-quiz"
+                                >
+
+                                    <i class="bi bi-controller"></i>
+
+                                    Quiz
+
+                                </a>
+
+
+                                <a
+                                    href="{{ url_for('aprender', tema='oceanos') }}"
+                                    class="btn-learn"
+                                >
+
+                                    <i class="bi bi-book"></i>
+
+                                    Aprender
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         APRENDE
+    =========================================== -->
+
+    <section
+        id="aprende"
+        class="aprende"
+    >
+
+        <div class="container">
+
+
+            <div class="section-title">
+
+                <span>
+                    📚 APRENDE
+                </span>
+
+                <h2>
+
+                    El conocimiento también
+
+                    <strong>
+                        protege al planeta.
+                    </strong>
+
+                </h2>
+
+                <p>
+
+                    Aprende sobre diferentes formas
+                    de cuidar nuestro medio ambiente.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="row g-4">
+
+
+                <!-- REDUCE -->
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="info-card">
+
+                        <div>
+                            ♻️
+                        </div>
+
+                        <h3>
+                            Reduce
+                        </h3>
+
+                        <p>
+                            Consume solamente lo que
+                            realmente necesitas y evita
+                            generar residuos innecesarios.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REUTILIZA -->
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="info-card">
+
+                        <div>
+                            🔄
+                        </div>
+
+                        <h3>
+                            Reutiliza
+                        </h3>
+
+                        <p>
+                            Dale una segunda oportunidad
+                            a los objetos antes de
+                            desecharlos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RECICLA -->
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="info-card">
+
+                        <div>
+                            ♻️
+                        </div>
+
+                        <h3>
+                            Recicla
+                        </h3>
+
+                        <p>
+                            Separa correctamente los
+                            residuos para facilitar
+                            su aprovechamiento.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROTEGE -->
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="info-card">
+
+                        <div>
+                            🌱
+                        </div>
+
+                        <h3>
+                            Protege
+                        </h3>
+
+                        <p>
+                            Cuida los recursos naturales
+                            y los espacios donde viven
+                            diferentes especies.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         FRASE
+    =========================================== -->
+
+    <section class="frase">
+
+        <div class="container text-center">
+
+
+            <div class="frase-icono">
+                🌎
+            </div>
+
+
+            <h2>
+                El planeta no necesita personas perfectas.
+            </h2>
+
+
+            <p>
+                Necesita personas dispuestas a hacer
+                pequeños cambios.
+            </p>
+
+
+            <span>
+                🌱 Cada acción cuenta.
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+
+    <footer>
+
+        <div class="container text-center">
+
+
+            <div class="footer-logo">
+
+                🌍 Eco<span style="color: #43e879;">
+                    Guardian
+                </span>
+
+            </div>
+
+
+            <p>
+                Aprende. Juega. Protege.
+            </p>
+
+
+            <div class="redes">
+
+                <i class="bi bi-instagram"></i>
+
+                <i class="bi bi-facebook"></i>
+
+                <i class="bi bi-tiktok"></i>
+
+            </div>
+
+
+            <hr>
+
+
+            <small>
+                © 2026 EcoGuardian |
+                Quiz educativo ambiental
+            </small>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ==========================================
+         BOTON ARRIBA
+    =========================================== -->
+
+    <button
+        id="arribaBtn"
+        type="button"
+        title="Volver arriba"
+    >
+
+        <i class="bi bi-arrow-up"></i>
+
+    </button>
+
+
+
+    <!-- ==========================================
+         BOOTSTRAP JAVASCRIPT
+    =========================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+
+    <!-- ==========================================
+         JAVASCRIPT PROPIO
+    =========================================== -->
+
+    <script
+        src="{{ url_for('static', filename='js/script.js') }}"
+    ></script>
+
+
+</body>
+
+</html>
